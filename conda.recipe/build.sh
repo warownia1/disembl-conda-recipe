@@ -1,6 +1,7 @@
 #! /bin/bash
 set -ev
 
+if [ -z $GCC ]; then GCC=${CC-gcc}; fi
 ${GCC} -O3 disembl.c -o disembl
 mkdir -p $PREFIX/bin
 cp disembl $PREFIX/bin/jensen_net
