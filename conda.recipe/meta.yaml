@@ -1,0 +1,28 @@
+{% set version="1.4" %}
+package:
+  name: disembl
+  version: {{ version }}
+
+source:
+  url: http://dis.embl.de/DisEMBL-{{ version }}.tgz
+  sha256: 34b1eb1f388f36a6d6ff208130f0ee4e368047fff7d70b40eaf7e4aa1660858c
+  patches:
+    - DisEMBL.patch
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+  run:
+    - sav_gol
+    - python >=3.5
+    - biopython >=1.72
+
+test:
+  commands:
+    - "DisEMBL 2>&1 | grep \"Usage\""
+
+about:
+  home: http://dis.embl.de/
+  license: "GNU General Public License version 2"
+  license_file: LICENSE
+

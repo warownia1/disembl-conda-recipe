@@ -1,0 +1,14 @@
+os:
+  - linux
+  - osx
+
+install:
+  - source ./install_conda.sh
+  - conda create -q -n env conda-build anaconda-client
+  - conda activate env
+
+script:
+  - conda config --set anaconda_upload yes
+  - conda build --token $ANACONDA_TOKEN --user $ANACONDA_USER
+      --quiet ./conda.recipe/
+
