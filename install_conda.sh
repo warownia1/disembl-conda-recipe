@@ -1,5 +1,5 @@
-if [[ $TRAVIX_OS_NAME == "osx" ]]; then
-  MINICONDA_OS=MaxOSX
+if [[ $TRAVIS_OS_NAME == "osx" ]]; then
+  MINICONDA_OS=MacOSX
 else
   MINICONDA_OS=Linux
 fi

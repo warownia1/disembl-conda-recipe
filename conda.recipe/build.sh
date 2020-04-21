@@ -1,4 +1,5 @@
 #! /bin/bash
+set -ev
 
 ${GCC} -O3 disembl.c -o disembl
 mkdir -p $PREFIX/bin
